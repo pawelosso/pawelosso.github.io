@@ -1,5 +1,4 @@
 
-
 const buttonmenu = document.querySelector('.hamburger');
 const phonemenu = document.querySelector('.phone-menu');
 const navigation = document.querySelector('nav');
@@ -59,6 +58,8 @@ $('.menu2').hover(function(){
 $('.menu3').hover(function(){
     $('.bar3').toggleClass('bar--active');
 })
+
+
 
 
 
