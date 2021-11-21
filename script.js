@@ -1,4 +1,5 @@
 
+
 const buttonmenu = document.querySelector('.hamburger');
 const phonemenu = document.querySelector('.phone-menu');
 const navigation = document.querySelector('nav');
@@ -32,15 +33,19 @@ document.addEventListener('scroll', event3 =>{
 
     var scrollpos = window.scrollY;
     
-    if(scrollpos>=aboutoffset){
+    if(scrollpos>=aboutoffset-180){
         logo.classList.add('black');
-        bars.classList.add('black-bar');
     }
     else{
         logo.classList.remove('black')
-        bars.classList.remove('black-bar')
+    }       
+
+    if(scrollpos>=aboutoffset-70){
+        bars.classList.add('black');
     }
-        
+    else{
+        bars.classList.remove('black')
+    }       
 })
 
 $('.menu1').hover(function(){
