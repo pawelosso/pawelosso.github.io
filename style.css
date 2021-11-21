@@ -109,7 +109,7 @@ nav{
     background-color: white;
     position: absolute;
     transform: translateY(-7px);
-    transition: .5s;
+    transition: .2s;
 }
 
 .bars::after{
@@ -119,17 +119,16 @@ nav{
     background-color: white;
     position: absolute;
     transform: translateY(7px);
-    transition: .5s;
+    transition: .2s;
 }
 
-.bars.black-bar::before{
+.bars.black::before{
     background-color: black;
 }
 
-.bars.black-bar::after{
+.bars.black::after{
     background-color: black;
 }
-
 
 .phone-menu--active{
     transform: translate(0);
@@ -238,12 +237,14 @@ header img {
 
 .left h3{
     margin-top: 20px;
+    color:#787878;
 }
 
 .right img{
-    width: 350px;
+    width: 300px;
     border-radius:50%;
     border: 10px solid #604BD4;
+    margin-top: 30px;
 }
 
 .top-border {
@@ -263,11 +264,20 @@ header img {
     left: -3px;
 }
 
+.border p{
+    font-weight: bold;
+    color: #604bd4;
+}
+
 @media (min-width: 1000px)
 {
 h1{
     font-size: 60px;
     top: 200px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
 }
 
 .hamburger{
@@ -326,7 +336,7 @@ nav{
 .nav--active .comp-menu{
     background-color: #604bd4;
     border-radius: 30px;
-    transition: .3s;
+    transition: .1s;
 }
 
 h2{
@@ -353,12 +363,16 @@ h2{
     font-size: 25px;
     opacity: 0;
     bottom: -2px;
-    transition: .5s;
+    transition: .2s;
 }
 
 .black{
-    color: black;
+    color: #604bd4;
     font-weight: bold;
+}
+
+.aboutme{
+    margin-top: 150px;
 }
 
 .logo--active{
@@ -366,7 +380,9 @@ h2{
 }
 
 .right img{
-    margin-left: 100px;
+    margin-left: 250px;
+    width: 350px;
+    margin-top: 0px;
 }
 
 }
