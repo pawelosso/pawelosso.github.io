@@ -1,11 +1,14 @@
+@keyframes arrowback{
+    from {transform: rotate(
+        180deg) translateY(-1px);}
+    to {transform: rotate(
+        180deg) translateY(4px);}
+  }
+
 *{
     margin: 0;
     padding: 0;
     font-family: 'Oswald', sans-serif;
-}
-
-body{
-    height: 250vh;
 }
 
 header{
@@ -56,12 +59,6 @@ nav{
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 10px;
-}
-
-.pink{
-    color: #FFA7FF;
-    margin-left: 5px;
-    font-weight: 100;
 }
 
 .phone-menu form{
@@ -151,7 +148,15 @@ h1{
     padding-left: 50px;
     padding-right: 50px;
     text-align: center;
+    transform: translateX(-50px);
+    opacity: 0;
     z-index: 1;
+}
+
+.h1--active{
+    transform: translateX(0);
+    opacity: 1;
+    transition: 1s;
 }
 
 h1::before{
@@ -161,11 +166,17 @@ h1::before{
     height: 100%;
 }
 
-header img {
+.photo{
     width: 50vh;
     position: absolute;
     bottom: 0;
     right: -20px;
+    opacity: 0;
+}
+
+.img--active{
+    opacity: 1;
+    transition: 1s;
 }
 
 .button{
@@ -184,6 +195,12 @@ header img {
     font-family: 'Oswald', sans-serif;
     font-weight: bold;
     transition:color .5s, background-color .5s, padding .5s;
+    opacity: 0;
+}
+
+.button--active{
+    opacity: 1;
+    transition: .5s;
 }
 
 .comp-menu{
@@ -237,7 +254,7 @@ header img {
 
 .left h3{
     margin-top: 20px;
-    color:#787878;
+    color:#604bd4;
 }
 
 .right img{
@@ -269,15 +286,82 @@ header img {
     color: #604bd4;
 }
 
+.text-container {
+    color: white;
+    position: relative;
+    top: 130px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+    z-index: 1;
+    font-size: 20px;
+    font-weight: bold;
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+.text-container--active{
+    transform: translateY(0);
+    opacity: 1;
+    transition: 1s;
+}
+
+.layout-container{
+    background: linear-gradient(0deg, rgba(96,75,212,1) 0%, rgba(255,71,255,1) 100%);
+    padding-top: 60px;   
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    justify-content: center;
+    column-gap: 30px;
+}
+
+.design{
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+.central{
+    font-size: 50px;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.arrowback-comp{
+    display: none;
+}
+
+.phone{
+    width: 300px;
+}
+
+.comp{
+    width: 350px;
+}
+
+.comp-container h3{
+    font-size: 40px;
+    color: white;
+    width: 350px;
+}
+
+.comp-container {
+    display: flex;
+    flex-direction: column;
+}
+
 @media (min-width: 1000px)
 {
 h1{
-    font-size: 60px;
-    top: 200px;
+    font-size: 100px;
+    top: 100px;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 900px;
+    left: 10%;
+    width: 1000px;
+    text-align: left;
+    word-spacing: 10px;
 }
 
 .hamburger{
@@ -326,11 +410,18 @@ nav{
     align-items: center;
     justify-content: center;
     transition:height .2s;
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
-
 .nav--active{
-    height: 60px;
+    height: 50px;
+}
+
+.nav--active2{
+    transition: .2s;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .nav--active .comp-menu{
@@ -357,20 +448,6 @@ h2{
     width: 100%;
 }
 
-.logo {
-    position: absolute;
-    left: -45px;
-    font-size: 25px;
-    opacity: 0;
-    bottom: -2px;
-    transition: .2s;
-}
-
-.black{
-    color: #604bd4;
-    font-weight: bold;
-}
-
 .aboutme{
     margin-top: 150px;
 }
@@ -383,6 +460,70 @@ h2{
     margin-left: 250px;
     width: 350px;
     margin-top: 0px;
+}
+
+.text-container {
+    position: absolute;
+    top: 400px;
+    left: 10%;
+    width: 1000px;
+    text-align: left;
+    font-size: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-weight: bold;
+}
+
+.arrowback-comp {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    top: 15px;
+    right: 30px;
+    opacity: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 50%;
+    z-index: 2;
+    display: none;
+}
+
+.arrowback-comp img{
+    width: 22px;
+    transform: rotate(180deg);
+    animation: arrowback infinite alternate .7s;
+}
+
+.arrowback--active{
+    opacity: 1;
+    transition: .5s;
+}
+
+.arrowback--active2{
+    background-color: #604bd4;
+    border: 2px solid black;
+}
+
+.central{
+    font-size: 70px;
+    text-align: center;
+}
+
+.comp {
+    width: 550px;
+}
+
+.comp-container h3{
+    text-align: left;
+    font-size: 50px;
+    width: 400px;
+}
+
+.phone {
+    width: 310px;
 }
 
 }
