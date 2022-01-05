@@ -1,9 +1,10 @@
-@keyframes arrowback{
-    from {transform: rotate(
-        180deg) translateY(-1px);}
-    to {transform: rotate(
-        180deg) translateY(4px);}
-  }
+@keyframes img-animation{
+from{
+}
+to{
+    filter: drop-shadow(0px 0px 20px #842DFF) hue-rotate(45deg);
+}
+}
 
 *{
     margin: 0;
@@ -11,10 +12,18 @@
     font-family: 'Oswald', sans-serif;
 }
 
+body{
+    height: 1200vh;
+}
+
 header{
     height: 100vh;
     background-color: #010423;
     position: relative;
+    overflow: hidden;
+}
+
+.scroll--notactive{
     overflow: hidden;
 }
 
@@ -145,25 +154,16 @@ h1{
     color: white;
     top: 110px;
     position: relative;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
     text-align: center;
-    transform: translateX(-50px);
-    opacity: 0;
     z-index: 1;
 }
 
-.h1--active{
-    transform: translateX(0);
-    opacity: 1;
-    transition: 1s;
-}
-
-h1::before{
-    content: '';
-    display: block;
-    width: 50%;
-    height: 100%;
+h1::after {
+    content: '|';
+    font-weight: normal;
+    font-size: 35px;
 }
 
 .photo{
@@ -213,11 +213,12 @@ h1::before{
     flex-flow: wrap;
     justify-content: center;
     margin-top: 50px;
+    column-gap: 150px
 }
 
 .left{
     height: 400px;
-    width: 300px;
+    width: 400px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -274,7 +275,7 @@ h1::before{
 
 .bottom-border {
     position: absolute;
-    width: 90%;
+    width: 92%;
     height: 13px;
     background: white;
     bottom: -13px;
@@ -303,12 +304,13 @@ h1::before{
 .text-container--active{
     transform: translateY(0);
     opacity: 1;
-    transition: 1s;
+    transition: opacity 1s, transform 1s;
 }
 
 .layout-container{
     background: linear-gradient(0deg, rgba(96,75,212,1) 0%, rgba(255,71,255,1) 100%);
     padding-top: 60px;   
+    padding-bottom: 60px;
     display: flex;
     flex-wrap: wrap;
     row-gap: 30px;
@@ -317,7 +319,7 @@ h1::before{
 }
 
 .design{
-    margin-top: 100px;
+    margin-top: 200px;
     overflow: hidden;
 }
 
@@ -327,10 +329,6 @@ h1::before{
     margin-right: 20px;
     margin-left: 20px;
     margin-bottom: 20px;
-}
-
-.arrowback-comp{
-    display: none;
 }
 
 .phone{
@@ -352,6 +350,11 @@ h1::before{
     flex-direction: column;
 }
 
+.blur--active{
+    filter: blur(5px);
+    transition: .5s;
+}
+
 @media (min-width: 1000px)
 {
 h1{
@@ -362,6 +365,10 @@ h1{
     width: 1000px;
     text-align: left;
     word-spacing: 10px;
+}
+
+h1::after {
+    font-size: 100px;
 }
 
 .hamburger{
@@ -383,7 +390,6 @@ h1{
 .comp-menu{
     display: block;
     color: white;
-    width: 100%;
     text-align: center;
     margin-left: 20%;
     margin-right: 20%;
@@ -392,12 +398,13 @@ h1{
 }
 
 .comp-menu li{
-    display: inline;
+    display: inline-block;
     margin-left: 45px;
     margin-right: 45px;
     font-size: 20px;
     text-align: center;
     position: relative;
+    width: 90px;
 }
 
 .comp-menu li:hover{
@@ -457,7 +464,6 @@ h2{
 }
 
 .right img{
-    margin-left: 250px;
     width: 350px;
     margin-top: 0px;
 }

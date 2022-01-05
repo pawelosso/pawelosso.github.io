@@ -1,77 +1,165 @@
+const body = document.querySelector('body');
 
-const buttonmenu = document.querySelector('.hamburger');
-const phonemenu = document.querySelector('.phone-menu');
-const navigation = document.querySelector('nav');
-const bars = document.querySelector('.bars');
+//offset
 const aboutoffset = document.querySelector('.aboutme').offsetTop;
+const designoffset = document.querySelector('.design').offsetTop;
+
+//header
 const h1 = document.querySelector('h1');
 const textcontainer = document.querySelector('.text-container'); 
 const headerimg = document.querySelector('.photo');
 const button = document.querySelector('.button');
-const arrowback = document.querySelector('.arrowback-comp')
 
-buttonmenu.addEventListener('click', event1 => {
+//phone-menu
+const menuPhone1 = document.querySelector('.menu-phone1');
+const menuPhone2 = document.querySelector('.menu-phone2');
+const menuPhone3 = document.querySelector('.menu-phone3');
+const phonemenu = document.querySelector('.phone-menu');
+const buttonmenu = document.querySelector('.hamburger');
 
-buttonmenu.classList.toggle('hamburger--active');
-phonemenu.classList.toggle('phone-menu--active');
+//comp-menu
+const navigation = document.querySelector('nav');
+const bars = document.querySelector('.bars');
+const menuComp1 = document.querySelector('.menu1');
+const menuComp2 = document.querySelector('.menu2');
+const menuComp3 = document.querySelector('.menu3');
 
-});
+buttonmenu.addEventListener('click', () => {
+        buttonmenu.classList.toggle('hamburger--active');
+        phonemenu.classList.toggle('phone-menu--active');
 
-document.addEventListener('scroll', event2 => {
-var scrollpos = window.scrollY;
+    });
 
-if(scrollpos>=70){
-    navigation.classList.add('nav--active');
-    arrowback.classList.add('arrowback--active');
-}
-else
-{
-    navigation.classList.remove('nav--active');
-    arrowback.classList.remove('arrowback--active');
-}
+document.addEventListener('scroll', () => {
+        var scrollpos = window.scrollY;
+
+        if (scrollpos >= 70) {
+            navigation.classList.add('nav--active');
+        }
+
+        else {
+            navigation.classList.remove('nav--active');
+        }
+    })
+
+document.addEventListener('scroll', () => {
+
+        var scrollpos = window.scrollY;
+
+        if (scrollpos >= aboutoffset - 70) {
+            bars.classList.add('black');
+        }
+        else {
+            bars.classList.remove('black');    
+        }
+    })
+
+button.addEventListener('click', () => {
+        headerimg.classList.toggle('blur--active');
+        h1.classList.toggle('blur--active');
+        textcontainer.classList.toggle('blur--active');
+        navigation.classList.toggle('blur--active');
+        body.classList.toggle('scroll--notactive')
+        window.scrollTo({
+            top:0,
+            left:0,
+            behavior:"smooth"
+        });
+        if(button.innerHTML=='Anuluj')
+        {
+            button.innerHTML='Zamów teraz';
+        }
+        else{button.innerHTML='Anuluj'}
 })
 
-document.addEventListener('scroll', event3 =>{
+//Menu buttons start
 
-    var scrollpos = window.scrollY;
-    
-    if(scrollpos>=aboutoffset-70){
-        bars.classList.add('black');
-        arrowback.classList.add('arrowback--active2')
-    }
-    else{
-        bars.classList.remove('black')
-        arrowback.classList.remove('arrowback--active2')
-    }       
-
-    if(scrollpos>=aboutoffset-170){
-        arrowback.classList.add('arrowback--active2')
-    }
-    else{
-        arrowback.classList.remove('arrowback--active2')
-    }       
-
-
-
+menuPhone1.addEventListener('click', ()=>{
+    window.scrollTo({
+        top:aboutoffset,
+        left:0,
+        behavior:"smooth"
+    })
+    phonemenu.classList.toggle('phone-menu--active');
+    buttonmenu.classList.toggle('hamburger--active');
+})
+menuPhone2.addEventListener('click', ()=>{
+    window.scrollTo({
+        top:designoffset,
+        left:0,
+        behavior:"smooth"
+    })
+    phonemenu.classList.toggle('phone-menu--active');
+    buttonmenu.classList.toggle('hamburger--active');
+})
+menuPhone3.addEventListener('click', ()=>{
+    window.scrollTo({
+        top:aboutoffset,
+        left:0,
+        behavior:"smooth"
+    })
+    phonemenu.classList.toggle('phone-menu--active');
+    buttonmenu.classList.toggle('hamburger--active');
 })
 
-$('.menu1').hover(function(){
-    $('.bar1').toggleClass('bar--active');
+menuComp1.addEventListener('click', ()=>{
+    window.scrollTo({
+        top:aboutoffset-150,
+        left:0,
+        behavior:"smooth"
+    })
+})
+menuComp2.addEventListener('click', ()=>{
+    window.scrollTo({
+        top:designoffset-30,
+        left:0,
+        behavior:"smooth"
+    })
 })
 
-$('.menu2').hover(function(){
-    $('.bar2').toggleClass('bar--active');
-})
 
-$('.menu3').hover(function(){
-    $('.bar3').toggleClass('bar--active');
-})
 
-window.onload = function(){
-    h1.classList.add('h1--active');
-    textcontainer.classList.add('text-container--active');
-    headerimg.classList.add('img--active')
-    navigation.classList.add('nav--active2')
+
+
+$('.menu1').hover(() => {
+        $('.bar1').toggleClass('bar--active');
+    })
+
+$('.menu2').hover(() => {
+        $('.bar2').toggleClass('bar--active');
+    })
+
+$('.menu3').hover(() => {
+        $('.bar3').toggleClass('bar--active');
+    })
+
+window.onload = () => {
+    headerimg.classList.add('img--active');
+    navigation.classList.add('nav--active2');
     button.classList.add('button--active');
+
+    let emptyText = new String();
+    const welcomeText = "Stwórz swoją stronę internetową ze mną!";
+
+    for(let i=0; i<welcomeText.length; i++)
+     {
+          setTimeout(() => {
+                    emptyText += welcomeText[i];
+                    document.querySelector("h1").innerHTML = emptyText;
+                    
+                    if(emptyText==welcomeText)
+                {
+                        setInterval(() => {
+                        document.querySelector(".text-container").classList.add("text-container--active");
+                        },300)
+                        
+                        setInterval(() => {
+                            
+                        },300)
+                }     
+               
+        },(i+1)*100)      
+     }      
+
 };
 
