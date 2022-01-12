@@ -9,6 +9,7 @@ const h1 = document.querySelector('h1');
 const textcontainer = document.querySelector('.text-container'); 
 const headerimg = document.querySelector('.photo');
 const button = document.querySelector('.button');
+const arrowback = document.querySelector('.arrowback');
 
 //phone-menu
 const menuPhone1 = document.querySelector('.menu-phone1');
@@ -35,22 +36,12 @@ document.addEventListener('scroll', () => {
 
         if (scrollpos >= 70) {
             navigation.classList.add('nav--active');
+            arrowback.classList.add('arrowback--active');
         }
 
         else {
             navigation.classList.remove('nav--active');
-        }
-    })
-
-document.addEventListener('scroll', () => {
-
-        var scrollpos = window.scrollY;
-
-        if (scrollpos >= aboutoffset - 70) {
-            bars.classList.add('black');
-        }
-        else {
-            bars.classList.remove('black');    
+            arrowback.classList.remove('arrowback--active');
         }
     })
 
@@ -73,6 +64,13 @@ button.addEventListener('click', () => {
 })
 
 //Menu buttons start
+arrowback.addEventListener('click', ()=>{
+    window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"smooth"
+    })
+})
 
 menuPhone1.addEventListener('click', ()=>{
     window.scrollTo({
@@ -85,7 +83,7 @@ menuPhone1.addEventListener('click', ()=>{
 })
 menuPhone2.addEventListener('click', ()=>{
     window.scrollTo({
-        top:designoffset,
+        top:designoffset-40,
         left:0,
         behavior:"smooth"
     })
@@ -116,9 +114,6 @@ menuComp2.addEventListener('click', ()=>{
         behavior:"smooth"
     })
 })
-
-
-
 
 
 $('.menu1').hover(() => {
@@ -153,7 +148,7 @@ window.onload = () => {
                         document.querySelector(".text-container").classList.add("text-container--active");
                         },300)
                         
-                        setInterval(() => {
+                        setInterval(() => { 
                             
                         },300)
                 }     

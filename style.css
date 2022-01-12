@@ -6,6 +6,15 @@ to{
 }
 }
 
+@keyframes arrowback-animation{
+from{
+    transform: translateY(-3px) rotate(180deg);
+}
+to{
+    transform: translateY(3px) rotate(180deg);
+}
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -32,6 +41,10 @@ nav{
     width: 100%;
     height: 50px;
     z-index: 2;
+}
+
+.nav--active{
+    background-color: #604bd4cc
 }
 
 .phone-menu{
@@ -104,10 +117,6 @@ nav{
     background-color: transparent;
 }
 
-.black-bar::before{
-    background-color: black;
-}
-
 .bars::before{
     content: '';
     width:100%;
@@ -128,14 +137,6 @@ nav{
     transition: .2s;
 }
 
-.bars.black::before{
-    background-color: black;
-}
-
-.bars.black::after{
-    background-color: black;
-}
-
 .phone-menu--active{
     transform: translate(0);
 }
@@ -148,6 +149,31 @@ nav{
 .hamburger--active .bars::after{
     transform: rotate(-45deg);
     background-color: white;
+}
+
+.arrowback {
+    position: absolute;
+    left: 95px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    opacity: 0;
+}
+
+.arrowback-bar {
+    width: 20px;
+    height: 3px;
+    background-color: white;
+}
+
+.arrowback img {
+    width: 30px;
+    transform: rotate(180deg);
+    animation: arrowback-animation .7s infinite alternate;
 }
 
 h1{
@@ -355,6 +381,67 @@ h1::after {
     transition: .5s;
 }
 
+.contactme {
+    
+    margin-top: 100px;
+    background: linear-gradient( 0deg
+, rgb(249 72 254) 0%, rgb(102 75 213) 100%);
+    min-height: 500px;
+    border-radius: 30px;
+    color: white;
+    max-width: 800px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.contactme h4 {
+    text-align: center;
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 130px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+    row-gap: 10px;
+}
+
+.form-right {
+    height: 120px;
+    display: flex;
+    align-items: end;
+}
+
+input[type="submit"] {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    box-shadow: aquamarine;
+    box-shadow: inset 0px -17px 0px 0px #714bd8;
+    width: 100px;
+    font-weight: bold;
+}
+
+input[type="text"]{
+    width: 100px;
+}
+
+textarea{
+    resize: none;
+}
+
 @media (min-width: 1000px)
 {
 h1{
@@ -423,6 +510,7 @@ nav{
 
 .nav--active{
     height: 50px;
+    background-color: transparent;
 }
 
 .nav--active2{
@@ -480,39 +568,6 @@ h2{
     font-weight: bold;
 }
 
-.arrowback-comp {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    top: 15px;
-    right: 30px;
-    opacity: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid white;
-    border-radius: 50%;
-    z-index: 2;
-    display: none;
-}
-
-.arrowback-comp img{
-    width: 22px;
-    transform: rotate(180deg);
-    animation: arrowback infinite alternate .7s;
-}
-
-.arrowback--active{
-    opacity: 1;
-    transition: .5s;
-}
-
-.arrowback--active2{
-    background-color: #604bd4;
-    border: 2px solid black;
-}
-
 .central{
     font-size: 70px;
     text-align: center;
@@ -530,6 +585,19 @@ h2{
 
 .phone {
     width: 310px;
+}
+
+.arrowback{
+    cursor: auto;
+}
+
+.arrowback--active{
+    background-color:#604bd4;
+    opacity: 1;
+}
+
+.arrowback--active:hover{
+    cursor: pointer;
 }
 
 }
