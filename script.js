@@ -3,6 +3,7 @@ const body = document.querySelector('body');
 //offset
 const aboutoffset = document.querySelector('.aboutme').offsetTop;
 const designoffset = document.querySelector('.design').offsetTop;
+const formoffer = document.querySelector('.contactme').offsetTop;
 
 //header
 const h1 = document.querySelector('h1');
@@ -10,6 +11,7 @@ const textcontainer = document.querySelector('.text-container');
 const headerimg = document.querySelector('.photo');
 const button = document.querySelector('.button');
 const arrowback = document.querySelector('.arrowback');
+const arrowbackPhone = document.querySelector('.phone-menu h2')
 
 //phone-menu
 const menuPhone1 = document.querySelector('.menu-phone1');
@@ -46,21 +48,11 @@ document.addEventListener('scroll', () => {
     })
 
 button.addEventListener('click', () => {
-        headerimg.classList.toggle('blur--active');
-        h1.classList.toggle('blur--active');
-        textcontainer.classList.toggle('blur--active');
-        navigation.classList.toggle('blur--active');
-        body.classList.toggle('scroll--notactive')
         window.scrollTo({
-            top:0,
+            top:formoffer,
             left:0,
             behavior:"smooth"
-        });
-        if(button.innerHTML=='Anuluj')
-        {
-            button.innerHTML='Zamów teraz';
-        }
-        else{button.innerHTML='Anuluj'}
+        })
 })
 
 //Menu buttons start
@@ -92,7 +84,17 @@ menuPhone2.addEventListener('click', ()=>{
 })
 menuPhone3.addEventListener('click', ()=>{
     window.scrollTo({
-        top:aboutoffset,
+        top:formoffer-60,
+        left:0,
+        behavior:"smooth"
+    })
+    phonemenu.classList.toggle('phone-menu--active');
+    buttonmenu.classList.toggle('hamburger--active');
+})
+
+arrowbackPhone.addEventListener('click', ()=>{
+    window.scrollTo({
+        top:0,
         left:0,
         behavior:"smooth"
     })
@@ -110,6 +112,14 @@ menuComp1.addEventListener('click', ()=>{
 menuComp2.addEventListener('click', ()=>{
     window.scrollTo({
         top:designoffset-30,
+        left:0,
+        behavior:"smooth"
+    })
+})
+
+menuComp3.addEventListener('click', ()=>{
+    window.scrollTo({
+        top:formoffer,
         left:0,
         behavior:"smooth"
     })
