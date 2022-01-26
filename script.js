@@ -1,9 +1,12 @@
 const body = document.querySelector('body');
 
 //offset
-const aboutoffset = document.querySelector('.aboutme').offsetTop;
-const designoffset = document.querySelector('.design').offsetTop;
-const formoffer = document.querySelector('.contactme').offsetTop;
+let aboutoffset = document.querySelector('.aboutme').offsetTop;
+let designoffset = document.querySelector('.design').offsetTop;
+let formoffer = document.querySelector('.contactme').offsetTop;
+
+//offset for phones
+
 
 //header
 const h1 = document.querySelector('h1');
@@ -11,7 +14,7 @@ const textcontainer = document.querySelector('.text-container');
 const headerimg = document.querySelector('.photo');
 const button = document.querySelector('.button');
 const arrowback = document.querySelector('.arrowback');
-const arrowbackPhone = document.querySelector('.phone-menu h2')
+const arrowbackPhone = document.querySelector('.phone-menu h2');
 
 //phone-menu
 const menuPhone1 = document.querySelector('.menu-phone1');
@@ -30,8 +33,7 @@ const menuComp3 = document.querySelector('.menu3');
 buttonmenu.addEventListener('click', () => {
         buttonmenu.classList.toggle('hamburger--active');
         phonemenu.classList.toggle('phone-menu--active');
-
-    });
+});
 
 document.addEventListener('scroll', () => {
         var scrollpos = window.scrollY;
@@ -49,8 +51,7 @@ document.addEventListener('scroll', () => {
 
 button.addEventListener('click', () => {
         window.scrollTo({
-            top:formoffer,
-            left:0,
+            top:formoffer-60,
             behavior:"smooth"
         })
 })
@@ -62,44 +63,6 @@ arrowback.addEventListener('click', ()=>{
         left:0,
         behavior:"smooth"
     })
-})
-
-menuPhone1.addEventListener('click', ()=>{
-    window.scrollTo({
-        top:aboutoffset,
-        left:0,
-        behavior:"smooth"
-    })
-    phonemenu.classList.toggle('phone-menu--active');
-    buttonmenu.classList.toggle('hamburger--active');
-})
-menuPhone2.addEventListener('click', ()=>{
-    window.scrollTo({
-        top:designoffset-40,
-        left:0,
-        behavior:"smooth"
-    })
-    phonemenu.classList.toggle('phone-menu--active');
-    buttonmenu.classList.toggle('hamburger--active');
-})
-menuPhone3.addEventListener('click', ()=>{
-    window.scrollTo({
-        top:formoffer-60,
-        left:0,
-        behavior:"smooth"
-    })
-    phonemenu.classList.toggle('phone-menu--active');
-    buttonmenu.classList.toggle('hamburger--active');
-})
-
-arrowbackPhone.addEventListener('click', ()=>{
-    window.scrollTo({
-        top:0,
-        left:0,
-        behavior:"smooth"
-    })
-    phonemenu.classList.toggle('phone-menu--active');
-    buttonmenu.classList.toggle('hamburger--active');
 })
 
 menuComp1.addEventListener('click', ()=>{
